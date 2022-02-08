@@ -1,3 +1,6 @@
+<style>
+  @import './assets/styles/style.css';
+</style>
 <template>
   <div id="app">
 
@@ -37,7 +40,6 @@
           </td>
           <td>
             <button v-if="mod_new" @click="newStatue" :disabled="saving">Mentés</button>
-            <button v-if="mod_new" @click="newStatue" :disabled="saving">Mégse</button>
             <button v-if="!mod_new" @click="saveStatue" :disabled="saving">Mentés</button>
             <button v-if="!mod_new" @click="cancelEdit" :disabled="saving">Mégse</button>
           </td>
@@ -81,7 +83,7 @@ export default {
       await this.loadData()
     },
     async newStatue() {
-      this.saving='disabled'
+      this.saving='enabled'
      await fetch('http://127.0.0.1:8000/api/statues', {
        method: 'POST',
        headers: {
